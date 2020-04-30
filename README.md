@@ -1,9 +1,4 @@
----
-title: G-Research F# code formatting guidelines
-description: Learn guidelines for formatting F# code.
----
-
-# F# code formatting guidelines
+# G-Research F# code formatting guidelines
 
 These guidelines are based on the official [F# code formatting guidelines](https://github.com/dotnet/docs/blob/master/docs/fsharp/style-guide/formatting.md).
 
