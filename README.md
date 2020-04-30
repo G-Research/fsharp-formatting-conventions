@@ -2,6 +2,51 @@
 
 These guidelines are based on the official [F# code formatting guidelines](https://github.com/dotnet/docs/blob/master/docs/fsharp/style-guide/formatting.md).
 
+## Table of contents
+
+* [General rules for indentation](#general-rules-for-indentation)
+  * [Using spaces](#using-spaces)
+* [Formatting white space](#formatting-white-space)
+  * [Formatting operators in arithmetic expressions](#formatting-operators-in-arithmetic-expressions)
+  * [Surround a custom operator definition with white space](#surround-a-custom-operator-definition-with-white-space)
+  * [Surround function parameter arrows with white space](#surround-function-parameter-arrows-with-white-space)
+  * [Surround function arguments with white space](#surround-function-arguments-with-white-space)
+  * [Place parameters on a new line for very long member definitions](#place-parameters-on-a-new-line-for-very-long-member-definitions)
+  * [Type annotations](#type-annotations)
+* [Formatting blank lines](#formatting-blank-lines)
+* [Formatting comments](#formatting-comments)
+* [Naming conventions](#naming-conventions)
+  * [Use camelCase for class\-bound, expression\-bound and pattern\-bound values and functions](#use-camelcase-for-class-bound-expression-bound-and-pattern-bound-values-and-functions)
+  * [Use camelCase for module\-bound public functions](#use-camelcase-for-module-bound-public-functions)
+  * [Use camelCase for internal and private module\-bound values and functions](#use-camelcase-for-internal-and-private-module-bound-values-and-functions)
+  * [Use camelCase for parameters](#use-camelcase-for-parameters)
+  * [Use PascalCase for modules](#use-pascalcase-for-modules)
+  * [Use PascalCase for type declarations, members, and labels](#use-pascalcase-for-type-declarations-members-and-labels)
+  * [Use PascalCase for constructs intrinsic to \.NET](#use-pascalcase-for-constructs-intrinsic-to-net)
+  * [Avoid underscores in names](#avoid-underscores-in-names)
+  * [Use standard F\# operators](#use-standard-f-operators)
+  * [Use prefix syntax for generics (Foo&lt;T&gt;) in preference to postfix syntax (T Foo)](#use-prefix-syntax-for-generics-foot-in-preference-to-postfix-syntax-t-foo)
+* [Formatting tuples](#formatting-tuples)
+* [Formatting discriminated union declarations](#formatting-discriminated-union-declarations)
+* [Formatting discriminated unions](#formatting-discriminated-unions)
+* [Formatting record declarations](#formatting-record-declarations)
+* [Formatting records](#formatting-records)
+* [Formatting copy\-and\-update record expressions](#formatting-copy-and-update-record-expressions)
+* [Formatting lists and arrays](#formatting-lists-and-arrays)
+* [Formatting if expressions](#formatting-if-expressions)
+  * [Pattern matching constructs](#pattern-matching-constructs)
+* [Formatting try/with expressions](#formatting-trywith-expressions)
+* [Formatting function parameter application](#formatting-function-parameter-application)
+  * [Formatting infix operators](#formatting-infix-operators)
+  * [Formatting pipeline operators](#formatting-pipeline-operators)
+  * [Formatting modules](#formatting-modules)
+  * [Formatting object expressions and interfaces](#formatting-object-expressions-and-interfaces)
+  * [Formatting white space in expressions](#formatting-white-space-in-expressions)
+* [Formatting attributes](#formatting-attributes)
+  * [Formatting attributes on parameters](#formatting-attributes-on-parameters)
+  * [Formatting multiple attributes](#formatting-multiple-attributes)
+* [Formatting literals](#formatting-literals)
+
 ## General rules for indentation
 
 F# uses significant white space by default. The following guidelines are intended to provide guidance as to how to juggle some challenges this can impose.
