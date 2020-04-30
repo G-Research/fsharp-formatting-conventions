@@ -5,6 +5,8 @@ description: Learn guidelines for formatting F# code.
 
 # F# code formatting guidelines
 
+These guidelines are based on the official [F# code formatting guidelines](https://github.com/dotnet/docs/blob/master/docs/fsharp/style-guide/formatting.md).
+
 ## General rules for indentation
 
 F# uses significant white space by default. The following guidelines are intended to provide guidance as to how to juggle some challenges this can impose.
