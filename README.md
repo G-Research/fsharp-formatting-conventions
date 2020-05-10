@@ -135,8 +135,8 @@ If you have a very long member definition, place the parameters on new lines and
 ```fsharp
 type C () =
     member __.LongMethodWithLotsOfParameters(
-        aVeryLongType : AVeryLongTypeThatYouNeedToUse
-        aSecondVeryLongType : AVeryLongTypeThatYouNeedToUse
+        aVeryLongType : AVeryLongTypeThatYouNeedToUse,
+        aSecondVeryLongType : AVeryLongTypeThatYouNeedToUse,
         aThirdVeryLongType : AVeryLongTypeThatYouNeedToUse)
         =
         // ... the body of the method follows
@@ -146,8 +146,8 @@ This also applies to constructors:
 
 ```fsharp
 type C (
-    aVeryLongType : AVeryLongTypeThatYouNeedToUse
-    aSecondVeryLongType : AVeryLongTypeThatYouNeedToUse
+    aVeryLongType : AVeryLongTypeThatYouNeedToUse,
+    aSecondVeryLongType : AVeryLongTypeThatYouNeedToUse,
     aThirdVeryLongType : AVeryLongTypeThatYouNeedToUse)
     =
     // ... the body of the class follows
