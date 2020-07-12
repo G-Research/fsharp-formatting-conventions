@@ -185,7 +185,7 @@ let myFunBad (a: decimal) b c:decimal = a + b + c
 ### Long function signatures
 
 If you have a very long function signature, place the parameters on new lines and indent them one scope.
-The return type and equal sign are also place an their own line.
+The return type and equal sign are also placed on their own line.
 
 ```fsharp
 let longFunctionName
