@@ -13,6 +13,7 @@ These guidelines are based on the official [F# code formatting guidelines](https
   * [Surround function arguments with white space](#surround-function-arguments-with-white-space)
   * [Place parameters on a new line for very long member definitions](#place-parameters-on-a-new-line-for-very-long-member-definitions)
   * [Type annotations](#type-annotations)
+  * [Long function signatures](#long-function-signatures)
 * [Formatting blank lines](#formatting-blank-lines)
 * [Formatting comments](#formatting-comments)
 * [Naming conventions](#naming-conventions)
@@ -183,6 +184,28 @@ let myFun (a : decimal) b c : decimal = a + b + c // Type annotation for the ret
 let expensiveToComputeBad1:int = 1
 let expensiveToComputeBad2 :int = 2
 let myFunBad (a: decimal) b c:decimal = a + b + c
+```
+
+### Long function signatures
+
+If you have a very long function signature, place the parameters on new lines and indent them one scope.
+The return type and equal sign are also placed on their own line.
+
+```fsharp
+let longFunctionName
+    (aVeryLongFunctionParameter : int)
+    (anotherVeryLongFunctionParameter : int)
+    : int
+    =
+    // ... the body of the function
+```
+
+```fsharp
+let anotherLongFunction
+    someParameter
+    anotherParameter
+    =
+    // ... the body of the function
 ```
 
 ## Formatting blank lines
