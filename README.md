@@ -789,6 +789,14 @@ let printListWithOffset a list1 =
     |> List.iter (fun elem ->
         printfn "%d" (a + elem)
     )
+
+// OK
+let printListWithOffset a list1 =
+    list1
+    |> List.iter (
+        ((+) a)
+        >> printfn "%d"
+    )
 ```
 
 However, if the body of a lambda expression is more than one line, consider factoring it out into a separate function rather than have a multi-line construct applied as a single argument to a function.
