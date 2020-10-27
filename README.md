@@ -888,6 +888,18 @@ let makeStreamReader x = new System.IO.StreamReader (path=x)
 let makeStreamReader x = new System.IO.StreamReader(path = x)
 ```
 
+### Formatting white space in constructors
+
+Use newlines and indent one scope, rather than indenting to the bracket, if using multiple lines:
+
+```fsharp
+let thing =
+    new Foobar(
+        argument1,
+        argument2
+    )
+```
+
 ## Formatting attributes
 
 [Attributes](../language-reference/attributes.md) are placed above a construct:
