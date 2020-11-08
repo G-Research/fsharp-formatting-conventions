@@ -775,7 +775,7 @@ let printListWithOffset a list1 =
         (fun elem -> printfn "%d" (a + elem))
         list1
 
-// OK if lambda body is long enough
+// OK if lambda body is long enough to require splitting lines
 let printListWithOffset a list1 =
     List.iter
         (fun elem ->
@@ -790,13 +790,29 @@ let printListWithOffset a list1 =
         printfn "%d" (a + elem)
     )
 
-// OK
+// OK if lambda body is long enough to require splitting...
 let printListWithOffset a list1 =
     list1
     |> List.iter (
-        ((+) a)
+        ((+) veryVeryVeryVeryLongThing)
         >> printfn "%d"
     )
+
+// ... but if lambda body will fit on one line, don't split
+let printListWithOffset' a list1 =
+    list1
+    |> List.iter (((+) a) >> printfn "%d")
+
+// If any argument will not fit on a line, split all the arguments onto different lines
+let mySuperFunction v =
+    someOtherFunction
+        (fun a  ->
+            let meh = "foo"
+            a
+        )
+        somethingElse
+        (fun b -> 42)
+        v
 ```
 
 However, if the body of a lambda expression is more than one line, consider factoring it out into a separate function rather than have a multi-line construct applied as a single argument to a function.
