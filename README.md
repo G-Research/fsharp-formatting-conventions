@@ -707,7 +707,7 @@ lambdaList
 )
 ```
 
-Note that the closing bracket has appeared on a new line, indented to teh scope of the pipe.
+Note that the closing bracket has appeared on a new line, indented to the scope of the pipe.
 
 Pattern matching in functions defined by `let` or `let rec` should be indented 4 spaces after starting of `let`, even if `function` keyword is used:
 
