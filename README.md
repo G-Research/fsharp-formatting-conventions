@@ -867,6 +867,8 @@ let comparer =
 Avoid extraneous white space in F# expressions.
 Also avoid extraneous brackets.
 
+In this example, note that the indexing expression does not have spaces around the numeral `1`; this is in contrast to the spacing in a list, where `[ 1 ]` would be correct.
+
 ```fsharp
 // OK
 spam ham.[1]
@@ -888,13 +890,48 @@ let makeStreamReader x = new System.IO.StreamReader (path=x)
 let makeStreamReader x = new System.IO.StreamReader(path = x)
 ```
 
+### Formatting constructors, static members and member invocations
+
+ If the expression is short, separate arguments with spaces and keep it in one line.
+
+ ```fsharp
+ let person = new Person (a1, a2)
+
+ let myRegexMatch = Regex.Match (input, regex)
+
+ let untypedRes = checker.ParseFile (file, source, opts)
+ ```
+
+ If the expression is long, use newlines and indent one scope, rather than indenting to the bracket.
+
+ ```fsharp
+ let person =
+     new Person (
+         argument1,
+         argument2
+     )
+
+ let myRegexMatch =
+     Regex.Match (
+         "my longer input string with some interesting content in it",
+         "myRegexPattern"
+     )
+
+ let untypedRes =
+     checker.ParseFile (
+         fileName,
+         sourceText,
+         parsingOptionsWithDefines
+     )
+ ```
+
 ### Formatting white space in constructors
 
 Use newlines and indent one scope, rather than indenting to the bracket, if using multiple lines:
 
 ```fsharp
 let thing =
-    new Foobar(
+    new Foobar (
         argument1,
         argument2
     )
