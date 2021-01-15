@@ -158,6 +158,61 @@ type C
     // ... the body of the class follows
 ```
 
+### Place parameters on a new line for member declarations
+
+If a member declaration is too long to fit on one line, split it up into one member per line.
+
+```fsharp
+type Foo =
+    abstract Qux :
+        string
+        -> string
+        -> int
+
+type Bar =
+    abstract Qux :
+        input : string
+        -> modifier : string
+        -> int
+
+type Baz =
+    abstract Qux :
+        [<Attribute>] input : string
+        -> [<Attribute>] modifier : string
+        -> int
+```
+
+In the same way, format tuples over new lines if the declaration is too long to fit on one line:
+
+```fsharp
+type Foo =
+    abstract Qux :
+        string
+        * string
+        -> int
+
+type Bar =
+    abstract Qux :
+        input : string
+        * modifier : string
+        -> int
+
+type Baz =
+    abstract Qux :
+        [<Attribute>] input : string
+        * [<Attribute>] modifier : string
+        -> int
+
+type Both =
+    /// int -> (string * int * string) -> string
+    abstract Qux :
+        i : int ->
+        a : string
+        * foo : int
+        * otherInput : string ->
+        string
+```
+
 ### Type annotations
 
 #### Pad function argument type annotations
