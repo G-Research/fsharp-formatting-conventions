@@ -822,7 +822,7 @@ let printVolumes x =
         (convertVolumeImperialPint x)
 ```
 
-The same guidelines apply for lambda expressions as function arguments. If the body of a lambda expression, the body can have another line, indented by one scope
+The same guidelines apply for lambda expressions as function arguments. If the body of a lambda expression, the body can have another line, indented by one scope.
 
 ```fsharp
 let printListWithOffset a list1 =
@@ -830,16 +830,67 @@ let printListWithOffset a list1 =
         (fun elem -> printfn "%d" (a + elem))
         list1
 
-// OK if lambda body is long enough
+// OK if lambda body is long enough to require splitting lines
 let printListWithOffset a list1 =
     List.iter
         (fun elem ->
             printfn "%d" (a + elem)
         )
         list1
+
+// OK
+let printListWithOffset a list1 =
+    list1
+    |> List.iter (fun elem ->
+        printfn "%d" (a + elem)
+    )
+
+// OK if lambda body is long enough to require splitting...
+let printListWithOffset a list1 =
+    list1
+    |> List.iter (
+        ((+) veryVeryVeryVeryLongThing)
+        >> printfn "%d"
+    )
+
+// ... but if lambda body will fit on one line, don't split
+let printListWithOffset' a list1 =
+    list1
+    |> List.iter (((+) a) >> printfn "%d")
+
+// If any argument will not fit on a line, split all the arguments onto different lines
+let mySuperFunction v =
+    someOtherFunction
+        (fun a ->
+            let meh = "foo"
+            a
+        )
+        somethingElse
+        (fun b -> 42)
+        v
 ```
 
 However, if the body of a lambda expression is more than one line, consider factoring it out into a separate function rather than have a multi-line construct applied as a single argument to a function.
+
+The following two functions are both correctly formatted (the `function` is aligned analogously to the `match`).
+
+```fsharp
+myList
+|> List.map (
+    function
+    | Abs (x, body) -> 1 + sizeLambda 0 body
+    | App (lam1, lam2) -> sizeLambda (sizeLambda 0 lam1) lam2
+    | Var v -> 1
+)
+
+myList
+|> List.map (fun i ->
+    match i with
+    | Abs (x, body) -> 1 + sizeLambda 0 body
+    | App (lam1, lam2) -> sizeLambda (sizeLambda 0 lam1) lam2
+    | Var v -> 1
+)
+```
 
 ### Formatting infix operators
 
