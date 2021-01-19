@@ -806,7 +806,7 @@ let printListWithOffset' a list1 =
 // If any argument will not fit on a line, split all the arguments onto different lines
 let mySuperFunction v =
     someOtherFunction
-        (fun a  ->
+        (fun a ->
             let meh = "foo"
             a
         )
@@ -816,6 +816,26 @@ let mySuperFunction v =
 ```
 
 However, if the body of a lambda expression is more than one line, consider factoring it out into a separate function rather than have a multi-line construct applied as a single argument to a function.
+
+The following two functions are both correctly formatted (the `function` is aligned analogously to the `match`).
+
+```fsharp
+myList
+|> List.map (
+    function
+    | Abs (x, body) -> 1 + sizeLambda 0 body
+    | App (lam1, lam2) -> sizeLambda (sizeLambda 0 lam1) lam2
+    | Var v -> 1
+)
+
+myList
+|> List.map (fun i ->
+    match i with
+    | Abs (x, body) -> 1 + sizeLambda 0 body
+    | App (lam1, lam2) -> sizeLambda (sizeLambda 0 lam1) lam2
+    | Var v -> 1
+)
+```
 
 ### Formatting infix operators
 
