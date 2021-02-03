@@ -586,9 +586,10 @@ Longer expressions should use new lines:
 
 ```fsharp
 let rainbow2 =
-    { rainbow with
-        Boss = "Jeffrey"
-        Lackeys = [ "Zippy" ; "George" ; "Bungle" ]
+    {
+        rainbow with
+            Boss = "Jeffrey"
+            Lackeys = [ "Zippy" ; "George" ; "Bungle" ]
     }
 ```
 
@@ -600,13 +601,14 @@ type State = { F : S option }
 
 let state = { F = Some { F1 = 1 ; F2 = "Hello" } }
 let newState =
-    { state with
-        F =
-            Some
-                {
-                    F1 = 0
-                    F2 = ""
-                }
+    {
+        state with
+            F =
+                Some
+                    {
+                        F1 = 0
+                        F2 = ""
+                    }
     }
 ```
 
