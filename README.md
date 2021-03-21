@@ -892,6 +892,24 @@ myList
 )
 ```
 
+If there are enough arguments to the lambda that they must be split onto different lines, then split every parameter onto a new line, indented at one scope.
+(Try to avoid this situation. If you have this many parameters, perhaps this should be a named function.)
+```fsharp
+// Lambda doesn't need to split because it's short
+let foo =
+    fun a b c d e f ->
+        3
+
+// If the lambda needs to split, then everything splits. Avoid this if at all possible!
+let foo =
+    fun a
+        b
+        somethingVeryVeryVeryLong
+        d
+        ->
+        3
+```
+
 ### Formatting infix operators
 
 Separate operators by spaces. Obvious exceptions to this rule are the `!` and `.` operators.
