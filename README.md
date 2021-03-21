@@ -1057,7 +1057,7 @@ Avoid placing the attribute on the same line as the value.
 
 ## Formatting computation expressions
 
-[Computation expressions](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/computation-expressions) should be formatted with the computation expression builder keyword on a new line, indented one place, *except* for the specific case of the `async` builder being used as the first line of a function definition (not a variable definition).
+[Computation expressions](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/computation-expressions) should be formatted with the computation expression builder keyword on a new line, indented one place.
 
 ```fsharp
 let items =
@@ -1072,36 +1072,34 @@ let items2 () =
         yield "item2"
     }
 
-// An async builder being used as the first line of a function definition
-// has the builder `async` collapsed onto the first line
-let foo () : Async<int> = async {
-    let! blah = Async.Sleep 100.
-    return 3
-}
-
-// An async builder being used as the first line of an inner function definition
-// also has the builder `async` collapsed onto the first line
-let bar () =
-    let foo () = async {
+let foo () : Async<int> =
+    async {
         let! blah = Async.Sleep 100.
         return 3
     }
-    4
 
-// An async builder being used as the first line of a *variable* definition
-// puts the builder `async` on a new line indented one scope.
+let bar () =
+    let foo () =
+        async {
+            let! blah = Async.Sleep 100.
+            return 3
+        }
+        4
+
 let foo =
     async {
         let! blah = Async.Sleep 100.
         return 3
     }
 
-// An async builder being used as the first line of an inner variable definition
-// also puts the builder `async` on a new line indented one scope.
 let quux () =
     let foo =
         async {
             let! blah = Async.Sleep 100.
+            let! baz =
+                async {
+                    return 4
+                }
             return 3
         }
     4
