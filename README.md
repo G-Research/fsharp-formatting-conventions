@@ -14,6 +14,7 @@ These guidelines are based on the official [F# code formatting guidelines](https
   * [Place parameters on a new line for very long member definitions](#place-parameters-on-a-new-line-for-very-long-member-definitions)
   * [Type annotations](#type-annotations)
   * [Long function signatures](#long-function-signatures)
+  * [Formatting bindings](#formatting-bindings)
 * [Formatting blank lines](#formatting-blank-lines)
 * [Formatting comments](#formatting-comments)
 * [Naming conventions](#naming-conventions)
@@ -261,6 +262,52 @@ let anotherLongFunction
     anotherParameter
     =
     // ... the body of the function
+```
+
+### Formatting bindings
+
+In all cases, the right-hand side of a binding either all goes on one line, or (if it's too long) goes on a new line indented one scope.
+
+For example, the following are non-compliant:
+```fsharp
+let a = """
+foobar, long string
+"""
+
+let b = async {
+    return ()
+}
+
+let c = {
+    Name = "Bilbo"
+    Age = 112
+}
+
+let d = while f do
+    printfn "%A" x
+```
+
+The following are compliant:
+```fsharp
+let a =
+    """
+foobar, long string
+"""
+
+let b =
+    async {
+        return ()
+    }
+
+let c =
+    {
+        Name = "Bilbo"
+        Age = 112
+    }
+
+let d =
+    while f do
+        printfn "%A" x
 ```
 
 ## Formatting blank lines
