@@ -811,10 +811,11 @@ lambdaList
 
 Note that the closing bracket has appeared on a new line, indented to the scope of the pipe.
 
-Pattern matching in functions defined by `let` or `let rec` should be indented 4 spaces after starting of `let`, even if `function` keyword is used:
+Pattern matching in functions defined by `let` or `let rec` should be indented one scope, even if the `function` keyword is used, and the `function` keyword should appear on a new line:
 
 ```fsharp
-let rec sizeLambda acc = function
+let rec sizeLambda acc =
+    function
     | Abs (x, body) -> sizeLambda (succ acc) body
     | App (lam1, lam2) -> sizeLambda (sizeLambda acc lam1) lam2
     | Var v -> succ acc
