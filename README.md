@@ -474,6 +474,20 @@ type Volume =
 | ImperialPint of float
 ```
 
+The F# spec does allow you to omit the pipe (`|`) character in a single-case DU.
+Nevertheless, prefer for consistency to use the pipe even when there is only one case.
+
+```fsharp
+// Preferred
+type Foo =
+    | Foo of int
+
+type Foo = | Foo of int
+
+// Avoid
+type Foo = Foo of int
+```
+
 ## Formatting discriminated unions
 
 Instantiated Discriminated Unions that split across multiple lines should give contained data a new scope with indentation.
