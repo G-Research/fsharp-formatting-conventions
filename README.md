@@ -781,7 +781,8 @@ Note that the closing bracket has appeared on a new line, indented to the scope 
 Pattern matching in functions defined by `let` or `let rec` should be indented 4 spaces after starting of `let`, even if `function` keyword is used:
 
 ```fsharp
-let rec sizeLambda acc = function
+let rec sizeLambda acc =
+    function
     | Abs (x, body) -> sizeLambda (succ acc) body
     | App (lam1, lam2) -> sizeLambda (sizeLambda acc lam1) lam2
     | Var v -> succ acc
@@ -945,6 +946,19 @@ let methods2 = System.AppDomain.CurrentDomain.GetAssemblies()
             |> List.ofArray
             |> List.map (fun t -> t.GetMethods())
             |> Array.concat
+```
+
+To keep indentation aligned in blocks of four spaces, add a newline where necessary in a `match` statement contained in a function call.
+This is analogous to the behaviour of `function` in the "Formatting function parameter application" section.
+
+```fsharp
+let bar =
+    baz
+    |> (
+        match false with
+        | true -> id
+        | false -> id
+    )
 ```
 
 ### Formatting modules
