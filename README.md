@@ -136,11 +136,11 @@ If you have a very long member definition, place the parameters on new lines and
 ```fsharp
 type C () =
     member __.LongMethodWithLotsOfParameters
-       (
-           aVeryLongType : AVeryLongTypeThatYouNeedToUse,
-           aSecondVeryLongType : AVeryLongTypeThatYouNeedToUse,
-           aThirdVeryLongType : AVeryLongTypeThatYouNeedToUse
-       )
+        (
+            aVeryLongType : AVeryLongTypeThatYouNeedToUse,
+            aSecondVeryLongType : AVeryLongTypeThatYouNeedToUse,
+            aThirdVeryLongType : AVeryLongTypeThatYouNeedToUse
+        )
         =
         // ... the body of the method follows
 ```
