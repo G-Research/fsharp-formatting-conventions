@@ -141,8 +141,8 @@ type C () =
            aSecondVeryLongType : AVeryLongTypeThatYouNeedToUse,
            aThirdVeryLongType : AVeryLongTypeThatYouNeedToUse
        )
-        =
-        // ... the body of the method follows
+       =
+       // ... the body of the method follows
 ```
 
 This also applies to constructors:
