@@ -821,12 +821,12 @@ sprintf
 
 // OK
 sprintf "\t%s - %i\n\r"
-     x.IngredientName x.Quantity
+    x.IngredientName x.Quantity
 
 // OK
 sprintf
-     "\t%s - %i\n\r"
-     x.IngredientName x.Quantity
+    "\t%s - %i\n\r"
+    x.IngredientName x.Quantity
 
 // OK
 let printVolumes x =
