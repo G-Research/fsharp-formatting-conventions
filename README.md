@@ -47,6 +47,7 @@ These guidelines are based on the official [F# code formatting guidelines](https
   * [Formatting attributes on parameters](#formatting-attributes-on-parameters)
   * [Formatting multiple attributes](#formatting-multiple-attributes)
 * [Formatting literals](#formatting-literals)
+* [Formatting computation expressions](#formatting-computation-expressions)
 
 ## General rules for indentation
 
@@ -1067,3 +1068,53 @@ let MyUrl = "www.mywebsitethatiamworkingwith.com"
 ```
 
 Avoid placing the attribute on the same line as the value.
+
+## Formatting computation expressions
+
+[Computation expressions](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/computation-expressions) should be formatted with the computation expression builder keyword on a new line, indented one place.
+
+```fsharp
+let items =
+    seq {
+        yield "item1"
+        yield "item2"
+    }
+
+let items2 () =
+    seq {
+        yield "item1"
+        yield "item2"
+    }
+
+let foo () : Async<int> =
+    async {
+        let! blah = Async.Sleep 100.
+        return 3
+    }
+
+let bar () =
+    let foo () =
+        async {
+            let! blah = Async.Sleep 100.
+            return 3
+        }
+        4
+
+let foo =
+    async {
+        let! blah = Async.Sleep 100.
+        return 3
+    }
+
+let quux () =
+    let foo =
+        async {
+            let! blah = Async.Sleep 100.
+            let! baz =
+                async {
+                    return 4
+                }
+            return 3
+        }
+    4
+```
