@@ -586,6 +586,14 @@ let foo a =
 
 The same rules apply for list and array elements.
 
+Insert a space before and after semicolons:
+
+```fsharp
+let good = { X = 1.0 ; Y = 0.0 }
+let bad = { X = 1.0; Y = 0.0 }
+```
+
+
 ## Formatting copy-and-update record expressions
 
 A copy-and-update record expression is still a record, so similar guidelines apply.
@@ -724,6 +732,21 @@ else
     if foo then 3 // also OK
     else
         someMoreStuff
+```
+
+Where it would make code more readable, the final block of an `else` or a `match` may be unindented.
+This is to allow flows which perform several checks in sequence, earlying out with an `Error` result if any check fails, without the code marching off to the right.
+
+```fsharp
+if cond then
+    e1
+elif cond2 then
+    e2
+else
+
+if foo then 3 // note the acceptable unindentation of this line
+else
+    someMoreStuff // this line could be unindented too
 ```
 
 Multiple conditionals with `elif` and `else` are indented at the same scope as the `if`:
