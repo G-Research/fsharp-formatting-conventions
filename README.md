@@ -263,6 +263,21 @@ let anotherLongFunction
     // ... the body of the function
 ```
 
+If the parameters themselves are very long and tupled, include extra whitespace as necessary:
+```fsharp
+module M =
+    let LongFunctionWithLotsOfParametersAndReturnType
+        (
+            aVeryLongParam: AVeryLongTypeThatYouNeedToUse,
+            aSecondVeryLongParam: AVeryLongTypeThatYouNeedToUse,
+            aThirdVeryLongParam: AVeryLongTypeThatYouNeedToUse
+        )
+        : ReturnType
+        =
+        // ... the body of the method follows
+        ()
+```
+
 ## Formatting blank lines
 
 * Separate top-level function and class definitions with two blank lines.
